@@ -11,6 +11,11 @@
         <link href="{{ asset('css/gsb.css') }}" rel="stylesheet" />
         <link href="{{ asset('js/bootstrap.min.js') }}" rel="stylesheet" />
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('js/jquery-1.11.2.js') }}" rel="stylesheet" />
+        
+    
+        
+        
         
        
         {% endblock %}
@@ -22,24 +27,28 @@
         <div style="margin-top: 15px">    
         <center>
             <style>
-                img{
+                .i{
                     border-radius: 50%;
                 }
                 
                 
-                img:hover {
+                .i:hover {
                         -webkit-transform: scaleX(-1);
                          transform: scaleX(-1);
                         }
             </style>
-            <a class="rounded mx-auto d-block" href="{{ path('type') }}">
-                <img  src="{{ asset('img/t2.jpeg') }}" width="150" >
+            <a class="rounded mx-auto d-block" href="{{ path('accuiel') }}">
+                <img class="i" src="{{ asset('img/t2.jpeg') }}" width="150" >
             </a>
         </center>
         </div>
         <br/>
+        
         {% endblock %}
-        {% block nav %}{% endblock %}
+        <script src="js/jquery-1.11.2.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        {% block nav %}
+        {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

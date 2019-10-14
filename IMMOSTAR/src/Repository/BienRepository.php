@@ -61,4 +61,12 @@ class BienRepository extends ServiceEntityRepository
         return $result;
     }
     
+    public function deletev2($id){
+        $req = $this->_em->createQuery('delete App\Entity\Bien b where b.id = :id');
+        $req->setParameter('id',$id);
+        $result = $req->getResult();
+
+        return $result;
+    }
+    
 }

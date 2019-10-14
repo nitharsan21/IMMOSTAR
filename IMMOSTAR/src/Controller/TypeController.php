@@ -13,13 +13,11 @@ use App\Form\TypeType;
 class TypeController extends AbstractController
 {
     /**
-     * @Route("/type", name="type")
+     * @Route("/login", name="accuiel")
      */
     public function index()
     {
-        return $this->render('type/index.html.twig', [
-            'controller_name' => 'TypeController',
-        ]);
+        return $this->render('main/accueil.html.twig');
     }
     
     /**
@@ -84,6 +82,18 @@ class TypeController extends AbstractController
         }
         return $this->render( 'type/CreateType.html.twig', array(
             'form' =>$form->createView(), 'article'=>$article));
+    }
+    
+    /**
+      *@Route("/type/delete/{id}",name="del_type")
+      */
+    public function deleter(Session $session, $id){
+
+        $article = $this->getDoctrine()->getManager()->getRepository(Bien::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($article);
+        $em->flush();
+        return $this->redirectToRoute('bienAfficher');
     }
     
     

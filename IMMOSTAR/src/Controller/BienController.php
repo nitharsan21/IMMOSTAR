@@ -106,4 +106,6 @@ class BienController extends AbstractController
             'form' =>$form->createView(), 'article'=>$article));
     }
     
+    
+    
 }
