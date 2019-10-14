@@ -1,0 +1,61 @@
+{% extends "main/navbar.html.twig" %}
+{% block title %}
+    Liste Bien
+{% endblock %}
+{% block body %}
+    <style>
+        .tableType1{
+            width: 100%;
+            margin: auto;
+            margin-top: 2em;
+                
+        }
+    </style>
+    <div class="tableType1">
+        <center><h4>Listes des Biens :</h4></center>
+        <table class="table" >
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nb_Pièce</th>
+                    <th scope="col">Nb_Chambre</th>
+                    <th scope="col">Superficie</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Chauffage</th>
+                    <th scope="col">Année</th>
+                    <th scope="col">Localisation</th>
+                    <th scope="col">Etat</th>
+                    <th scope="col">Type</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for bien in Biens %}
+                    <tr>
+                        <td>{{ bien.id }}</td>
+                        <td>{{ bien.nbpiece }}</td>
+                        <td>{{ bien.nbchambre }}</td>
+                        <td>{{ bien.superficie }} m²</td>
+                        <td>{{ bien.prix }} €</td>
+                        <td>{{ bien.chauffage }}</td>
+                        <td>{{ bien.annee }}</td>
+                        <td>{{ bien.localisation }}</td>
+                        <td>{{ bien.etat }}</td>
+                        <td>{{ bien.type.libelle }}</td>
+                        <form action="/Bien/update/{{ bien.id }}" Method="get" >
+                            <td><button type="submit" class="btn btn-warning">Modifier</button></td>
+                        </form>
+                        <form action="/Bien/verif/supprimer/{{ bien.id }}" Method="get" >
+                            <td><button type="submit" onclick="myFunction()" class="btn btn-danger">Supprimer</button></td>
+                        </form>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>  
+    </div>
+{% endblock %}
+
+

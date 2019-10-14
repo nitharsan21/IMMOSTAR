@@ -1,0 +1,52 @@
+{% extends "main/navbar.html.twig" %}
+{% block title %}
+    Liste Bien
+{% endblock %}
+{% block body %}
+    <style>
+        .tableType1{
+            width: 100%;
+            margin: auto;
+            margin-top: 2em;
+                
+        }
+    </style>
+    <div class="tableType1">
+        <center><h4>Listes des Visiteurs :</h4></center>
+        <table class="table" >
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Telephone</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for visiteur in Visiteurs %}
+                    <tr>
+                        <td>{{ visiteur.id }}</td>
+                        <td>{{ visiteur.nom }}</td>
+                        <td>{{ visiteur.prenom }}</td>
+                        <td>{{ visiteur.adresse }}</td>
+                        <td>{{ visiteur.telephone }}</td>
+                        <form action="/Visiteur/update/{{ visiteur.id }}" Method="get" >
+                            <td><button type="submit" class="btn btn-warning">Modifier</button></td>
+                        </form>
+                        <form action="/Bien/verif/supprimer/{{ visiteur.id }}" Method="get" >
+                            <td><button type="submit" onclick="myFunction()" class="btn btn-danger">Supprimer</button></td>
+                        </form>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>  
+    </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,84 @@
+{% extends "main/navbar.html.twig" %}
+{% block title %}
+    Confirmation de Suppression
+{% endblock %}
+{% block body %}
+    <style>
+        .tableType1{
+            width: 50%;
+            margin: auto;
+            margin-top: 2em;
+                
+        }
+        .btn-success{
+           float: right; 
+        }
+        th{
+            background-color: dimgray;
+        }
+        td{
+            background-color: darkgray;
+        }
+        
+    </style>
+    <div class="tableType1">
+        <h4>Conformation de la Suppression :</h4>
+    <table class="table">
+        <tr>
+            <th scope="col">ID :</th>
+             <td>{{ bien.id }}</td>
+        </tr>
+        <tr>
+            <th scope="col">Nb_Pièce :</th>
+            <td>{{ bien.nbpiece }}</td>
+        </tr>
+        <tr>
+            <th scope="col">Nb_Chambre :</th>
+            <td>{{ bien.nbchambre }}</td>
+        </tr>
+        <tr>
+            <th scope="col">Superficie :</th>
+            <td>{{ bien.superficie }} m²</td>
+        </tr>
+        <tr>
+            <th scope="col">Prix :</th>
+            <td>{{ bien.prix }} €</td>
+        </tr>
+        <tr>
+            <th scope="col">Chauffage :</th>
+            <td>{{ bien.chauffage }}</td>
+        </tr>
+        <tr>
+            <th scope="col">Année :</th>
+            <td>{{ bien.annee }}</td>
+        </tr>
+        <tr>
+            <th scope="col">Localisation :</th>
+            <td>{{ bien.localisation }}</td>
+        </tr>
+        <tr>
+            <th scope="col">Etat :</th>
+            <td>{{ bien.etat }}</td>
+        </tr>
+        <tr>
+            <th scope="col">Type :</th>
+            <td>{{ bien.type.libelle }}</td>
+        </tr> 
+        <tr>
+        </tr>
+        <tr>
+            <form action="/bienAfficher" Method="get" >
+                <td><button type="submit" class="btn btn-success">Annuler</button></td>
+            </form>
+            <form action="/Bien/supprimer/{{ bien.id }}" Method="Post" >
+                <td><button type="submit" class="btn btn-danger">Supprimer</button></td>
+            </form>
+        </tr>   
+        
+        
+    </table>
+    </div>
+       
+    
+    
+{% endblock %}

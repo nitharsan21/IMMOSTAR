@@ -1,0 +1,46 @@
+{% block session %}{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}GSB{% endblock %}</title>
+        {% block stylesheets %}
+        <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/bootstrap-grid.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/bootstrap-reboot.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/gsb.css') }}" rel="stylesheet" />
+        <link href="{{ asset('js/bootstrap.min.js') }}" rel="stylesheet" />
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+        
+       
+        {% endblock %}
+        {% block icnon %}<link rel="icon" type="image/x-icon" href="{{ asset('img/thanos.jpeg') }}" />{%
+        endblock %}
+    </head>
+    <body Style="background-color: lightblue">
+        {% block menu %}
+        <div style="margin-top: 15px">    
+        <center>
+            <style>
+                img{
+                    border-radius: 50%;
+                }
+                
+                
+                img:hover {
+                        -webkit-transform: scaleX(-1);
+                         transform: scaleX(-1);
+                        }
+            </style>
+            <a class="rounded mx-auto d-block" href="{{ path('type') }}">
+                <img  src="{{ asset('img/t2.jpeg') }}" width="150" >
+            </a>
+        </center>
+        </div>
+        <br/>
+        {% endblock %}
+        {% block nav %}{% endblock %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

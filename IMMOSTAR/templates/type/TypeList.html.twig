@@ -1,0 +1,42 @@
+{% extends "main/navbar.html.twig" %}
+{% block title %}
+    Liste Type
+{% endblock %}
+{% block body %}
+    <style>
+        .tableType1{
+            width: 50%;
+            margin: auto;
+            margin-top: 2em;
+                
+        }
+    </style>
+    <div class="tableType1">
+        <table class="table" >
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Libelle</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for type in Types %}
+                    <tr>
+                        <td>{{ type.id }}</td>
+                        <td>{{ type.libelle }}</td>
+                        <form action="/type/update/{{ type.id }}" Method="get" >
+                            <td><button type="submit"  class="btn btn-warning">Modifier</button></td>
+                        </form>
+                        <form action="/type/delete/{{ type.id }}" Method="get" >
+                            <td><button type="submit" class="btn btn-danger">Supprimer</button></td>
+                        </form>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>  
+    </div>
+{% endblock %}
+
